@@ -1,8 +1,8 @@
-let clicks = 0;
-const clickBtn = document.getElementById('clickBtn');
-const countDisplay = document.getElementById('count');
+let count = 0;
+const button = document.getElementById('click');
+const counter = document.getElementById('counter');
 
-clickBtn.addEventListener('click', () => {
-  clicks++;
-  countDisplay.textContent = clicks;
+button.addEventListener('click', () => {
+  count++;
+  counter.textContent = count;
 });
