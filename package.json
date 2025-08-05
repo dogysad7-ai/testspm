@@ -1,8 +1,0 @@
-{
-  "name": "spm-clicker",
-  "version": "1.0.0",
-  "description": "Простой кликер для СПм",
-  "spwmini": {
-    "entry": "index.html"
-  }
-}
