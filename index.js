@@ -1,16 +1,30 @@
-// Переменная для подсчёта кликов
-let clicks = 0;
+import SPWMini from 'spwmini/client';
 
-// Получаем элементы кнопки и счетчика
-const clickBtn = document.getElementById('clickBtn');
-const countDisplay = document.getElementById('count');
+// Вставь сюда свой ID приложения СПм (пример)
+const APP_ID = 'твой-id-приложения-от-spworlds';
 
-// Обработчик клика
-clickBtn.addEventListener('click', () => {
-  clicks++;
-  countDisplay.textContent = clicks;
+// Создаём экземпляр миниаппа
+const spm = new SPWMini(APP_ID);
 
-  // Если хочешь работать с игроком через API СПм, пример ниже:
-  // let player = spwmini.getPlayer(); // получить объект игрока
-  // player.sendMessage(`Ты кликнул ${clicks} раз!`);
+// Инициализируем миниприложение
+spm.initialize();
+
+// Слушаем когда будет готово
+spm.on('ready', () => {
+  console.log('Миниприложение СПм готово');
+
+  // Здесь пишем остальную логику, чтобы элементы были доступны
+  const clickBtn = document.getElementById('clickBtn');
+  const countDisplay = document.getElementById('count');
+  let clicks = 0;
+
+  clickBtn.addEventListener('click', () => {
+    clicks++;
+    countDisplay.textContent = clicks;
+
+    // Пример: отправить сообщение игроку (если нужно)
+    if (spm.user) {
+      spm.sendMessage(`Ты кликнул ${clicks} раз!`);
+    }
+  });
 });
