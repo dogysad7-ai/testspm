@@ -1,6 +1,6 @@
 import SPWMini from 'https://cdn.jsdelivr.net/npm/spwmini/client/index.js';
 
-const APP_ID = '123e4567-e89b-12d3-a456-426655440000'; // сюда вставь свой ID приложения из СПм
+const APP_ID = '48300'; // сюда вставь свой ID приложения из СПм
 
 const spm = new SPWMini(APP_ID);
 
