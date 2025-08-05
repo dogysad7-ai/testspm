@@ -1,14 +1,29 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <title>Кликер СПм</title>
-</head>
-<body>
-  <h1>Кликер СПм</h1>
-  <button id="clickBtn">Кликни меня</button>
-  <p>Клики: <span id="count">0</span></p>
+import SPWMini from 'https://cdn.jsdelivr.net/npm/spwmini/client/index.js';
 
-  <script type="module" src="index.js"></script>
-</body>
-</html>
+const APP_ID = '123e4567-e89b-12d3-a456-426655440000'; // сюда вставь свой ID приложения из СПм
+
+const spm = new SPWMini(APP_ID);
+
+spm.on('initResponse', user => {
+  console.log(`Пользователь вошёл: ${user.username}`);
+});
+
+spm.on('initError', err => {
+  console.error('Ошибка инициализации СПм:', err);
+});
+
+spm.initialize();
+
+let clicks = 0;
+const button = document.getElementById('clickBtn');
+const counter = document.getElementById('count');
+
+button.addEventListener('click', () => {
+  clicks++;
+  counter.textContent = clicks;
+
+  // Пример отправки сообщения игроку через СПм API
+  if (spm.user) {
+    spm.user.sendMessage(`Ты кликнул ${clicks} раз!`);
+  }
+});
