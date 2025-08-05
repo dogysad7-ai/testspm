@@ -1,8 +1,14 @@
-let count = 0;
-const button = document.getElementById('click');
-const counter = document.getElementById('counter');
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Кликер СПм</title>
+</head>
+<body>
+  <h1>Кликер СПм</h1>
+  <button id="clickBtn">Кликни меня</button>
+  <p>Клики: <span id="count">0</span></p>
 
-button.addEventListener('click', () => {
-  count++;
-  counter.textContent = count;
-});
+  <script type="module" src="index.js"></script>
+</body>
+</html>
